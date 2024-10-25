@@ -1,0 +1,155 @@
+
+
+-- Tạo cơ sở dữ liệu
+CREATE DATABASE [qlshowroom]
+GO
+USE [qlshowroom]
+GO
+
+
+-- Tạo bảng Department
+CREATE TABLE [dbo].[Department](
+    [DepartmentName] [nvarchar](50) NOT NULL,
+    CONSTRAINT [PK_Department] PRIMARY KEY CLUSTERED ([DepartmentName] ASC)
+) ON [PRIMARY]
+GO
+
+-- Tạo bảng Employee
+CREATE TABLE [dbo].[Employee](
+    [EmployeeID] [bigint] IDENTITY(1,1) NOT NULL,
+    [FirstName] [nvarchar](20) NOT NULL,
+    [LastName] [nvarchar](50) NOT NULL,
+    [Sex] [bit] NOT NULL,
+    [DateOfBirth] [date] NOT NULL,
+    [Address] [nvarchar](100) NOT NULL,
+    [Phone] [int] NOT NULL,
+    [DepartmentName] [nvarchar](50) NOT NULL,
+    CONSTRAINT [PK_Employee] PRIMARY KEY CLUSTERED ([EmployeeID] ASC),
+    CONSTRAINT [FK_Employee_Department] FOREIGN KEY (DepartmentName) REFERENCES Department(DepartmentName)
+) ON [PRIMARY]
+GO
+
+-- Tạo bảng Customer
+CREATE TABLE [dbo].[Customer](
+    [CustomerID] [bigint] IDENTITY(1,1) NOT NULL,
+    [FirstName] [nvarchar](20) NOT NULL,
+    [LastName] [nvarchar](50) NOT NULL,
+    [Sex] [bit] NOT NULL,
+    [DateOfBirth] [date] NOT NULL,
+    [Address] [nvarchar](100) NOT NULL,
+    [Phone] [int] NOT NULL,
+    CONSTRAINT [PK_Customer] PRIMARY KEY CLUSTERED ([CustomerID] ASC)
+) ON [PRIMARY]
+GO
+
+-- Tạo bảng Car
+CREATE TABLE [dbo].[Car](
+    [CarNo] [bigint] IDENTITY(1,1) NOT NULL,
+    [ModelName] [varchar](50) NOT NULL,
+    [Name] [varchar](50) NOT NULL,
+    [Price] [float] NOT NULL,
+    [Status] [bit] NULL,
+    [AddInfor] [nvarchar](100) NULL,
+    CONSTRAINT [PK_Car] PRIMARY KEY CLUSTERED ([CarNo] ASC)
+) ON [PRIMARY]
+GO
+
+-- Tạo bảng Manufactory
+CREATE TABLE [dbo].[Manufactory](
+    [ManufactoryID] [int] IDENTITY(1,1) NOT NULL,
+    [ManufactoryName] [nvarchar](50) NOT NULL,
+    [Address] [nvarchar](100) NOT NULL,
+    [Phone] [int] NOT NULL,
+    [AddInfor] [nvarchar](100) NULL,
+    CONSTRAINT [PK_Manufactory] PRIMARY KEY CLUSTERED ([ManufactoryID] ASC)
+) ON [PRIMARY]
+GO
+
+-- Tạo bảng CarModel
+CREATE TABLE [dbo].[CarModel](
+    [ModelName] [varchar](50) NOT NULL,
+    [AddInfor] [nvarchar](100) NULL,
+    [ManufactoryID] [int] NOT NULL,
+    [Image] [varbinary](max) NULL,
+    CONSTRAINT [PK_CarModel] PRIMARY KEY CLUSTERED ([ModelName] ASC),
+    CONSTRAINT [FK_CarModel_Manufactory] FOREIGN KEY (ManufactoryID) REFERENCES Manufactory(ManufactoryID)
+) ON [PRIMARY]
+GO
+
+-- Tạo bảng Order
+CREATE TABLE [dbo].[Order](
+    [OrderID] [bigint] IDENTITY(1,1) NOT NULL,
+    [CustomerID] [bigint] NOT NULL,
+    [OnOrder] [date] NOT NULL,
+    [EmployeeID] [bigint] NOT NULL,
+    [Request] [nvarchar](100) NULL,
+    [Confirmation] [bit] NOT NULL,
+    CONSTRAINT [PK_Order] PRIMARY KEY CLUSTERED ([OrderID] ASC),
+    CONSTRAINT [FK_Order_Customer] FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID),
+    CONSTRAINT [FK_Order_Employee] FOREIGN KEY (EmployeeID) REFERENCES Employee(EmployeeID)
+) ON [PRIMARY]
+GO
+
+-- Tạo bảng OrderDetails
+CREATE TABLE [dbo].[OrderDetails](
+    [OrderID] [bigint] NOT NULL,
+    [CarNo] [bigint] NOT NULL,
+    [Quantity] [int] NOT NULL,
+    CONSTRAINT [PK_OrderDetails] PRIMARY KEY CLUSTERED ([OrderID] ASC, [CarNo] ASC),
+    CONSTRAINT [FK_OrderDetails_Order] FOREIGN KEY (OrderID) REFERENCES [Order](OrderID),
+    CONSTRAINT [FK_OrderDetails_Car] FOREIGN KEY (CarNo) REFERENCES Car(CarNo)
+) ON [PRIMARY]
+GO
+
+-- Tạo bảng PurchaseOrder
+CREATE TABLE [dbo].[PurchaseOrder](
+    [PurchaseOrderID] [bigint] IDENTITY(1,1) NOT NULL,
+    [Date] [date] NOT NULL,
+    [EmployeeID] [bigint] NULL,
+    CONSTRAINT [PK_PurchaseOrder] PRIMARY KEY CLUSTERED ([PurchaseOrderID] ASC),
+    CONSTRAINT [FK_PurchaseOrder_Employee] FOREIGN KEY (EmployeeID) REFERENCES Employee(EmployeeID)
+) ON [PRIMARY]
+GO
+
+-- Tạo bảng PurchaseOrderDetails
+CREATE TABLE [dbo].[PurchaseOrderDetails](
+    [PurchaseOrderID] [bigint] NOT NULL,
+    [CarNo] [bigint] NOT NULL,
+    [Quantity] [int] NOT NULL,
+    [Price] [float] NOT NULL,
+    CONSTRAINT [PK_PurchaseOrderDetails] PRIMARY KEY CLUSTERED ([PurchaseOrderID] ASC, [CarNo] ASC),
+    CONSTRAINT [FK_PurchaseOrderDetails_PurchaseOrder] FOREIGN KEY (PurchaseOrderID) REFERENCES PurchaseOrder(PurchaseOrderID),
+    CONSTRAINT [FK_PurchaseOrderDetails_Car] FOREIGN KEY (CarNo) REFERENCES Car(CarNo)
+) ON [PRIMARY]
+GO
+
+-- Tạo bảng Service
+CREATE TABLE [dbo].[Service](
+    [ServiceID] [int] IDENTITY(1,1) NOT NULL,
+    [Name] [nvarchar](50) NOT NULL,
+    [Description] [nvarchar](200) NULL,
+    CONSTRAINT [PK_Service] PRIMARY KEY CLUSTERED ([ServiceID] ASC)
+) ON [PRIMARY]
+GO
+
+-- Tạo bảng ServiceDetails
+CREATE TABLE [dbo].[ServiceDetails](
+    [CarNo] [bigint] NOT NULL,
+    [ServiceID] [int] NOT NULL,
+    CONSTRAINT [PK_ServiceDetails] PRIMARY KEY CLUSTERED ([CarNo] ASC, [ServiceID] ASC),
+    CONSTRAINT [FK_ServiceDetails_Car] FOREIGN KEY (CarNo) REFERENCES Car(CarNo),
+    CONSTRAINT [FK_ServiceDetails_Service] FOREIGN KEY (ServiceID) REFERENCES Service(ServiceID)
+) ON [PRIMARY]
+GO
+
+-- Tạo bảng Assigning
+CREATE TABLE [dbo].[Assigning](
+    [OrderID] [bigint] NOT NULL,
+    [OnAssigning] [date] NOT NULL,
+    [EmployeeID] [bigint] NOT NULL,
+    [AssigningID] [bigint] IDENTITY(1,1) NOT NULL,
+    CONSTRAINT [PK_Assigning] PRIMARY KEY CLUSTERED ([AssigningID] ASC),
+    CONSTRAINT [FK_Assigning_Order] FOREIGN KEY (OrderID) REFERENCES [Order](OrderID),
+    CONSTRAINT [FK_Assigning_Employee] FOREIGN KEY (EmployeeID) REFERENCES Employee(EmployeeID)
+) ON [PRIMARY]
+GO
