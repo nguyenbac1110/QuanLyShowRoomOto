@@ -16,5 +16,15 @@ namespace QuanLyShowRoomOto
         {
             InitializeComponent();
         }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox10_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

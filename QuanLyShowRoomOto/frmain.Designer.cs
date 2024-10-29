@@ -30,14 +30,13 @@
         {
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.pcBheader = new System.Windows.Forms.PictureBox();
-            this.btnmathang = new System.Windows.Forms.Button();
-            this.btnNhanVien = new System.Windows.Forms.Button();
-            this.btnhoadon = new System.Windows.Forms.Button();
-            this.btnphieunhap = new System.Windows.Forms.Button();
+            this.btncar = new System.Windows.Forms.Button();
+            this.btncustomer = new System.Windows.Forms.Button();
+            this.btnemployee = new System.Windows.Forms.Button();
+            this.btnmanufactory = new System.Windows.Forms.Button();
+            this.btnorder = new System.Windows.Forms.Button();
+            this.btnservice = new System.Windows.Forms.Button();
             this.mainpanel = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcBheader)).BeginInit();
             this.SuspendLayout();
@@ -46,13 +45,12 @@
             // 
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(112)))), ((int)(((byte)(255)))));
             this.flowLayoutPanel1.Controls.Add(this.pcBheader);
-            this.flowLayoutPanel1.Controls.Add(this.btnmathang);
-            this.flowLayoutPanel1.Controls.Add(this.btnNhanVien);
-            this.flowLayoutPanel1.Controls.Add(this.btnhoadon);
-            this.flowLayoutPanel1.Controls.Add(this.btnphieunhap);
-            this.flowLayoutPanel1.Controls.Add(this.button1);
-            this.flowLayoutPanel1.Controls.Add(this.button2);
-            this.flowLayoutPanel1.Controls.Add(this.button3);
+            this.flowLayoutPanel1.Controls.Add(this.btncar);
+            this.flowLayoutPanel1.Controls.Add(this.btncustomer);
+            this.flowLayoutPanel1.Controls.Add(this.btnemployee);
+            this.flowLayoutPanel1.Controls.Add(this.btnmanufactory);
+            this.flowLayoutPanel1.Controls.Add(this.btnorder);
+            this.flowLayoutPanel1.Controls.Add(this.btnservice);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -68,65 +66,101 @@
             this.pcBheader.TabIndex = 1;
             this.pcBheader.TabStop = false;
             // 
-            // btnmathang
+            // btncar
             // 
-            this.btnmathang.FlatAppearance.BorderSize = 0;
-            this.btnmathang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnmathang.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnmathang.ForeColor = System.Drawing.Color.White;
-            this.btnmathang.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnmathang.Location = new System.Drawing.Point(0, 236);
-            this.btnmathang.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.btnmathang.Name = "btnmathang";
-            this.btnmathang.Size = new System.Drawing.Size(253, 50);
-            this.btnmathang.TabIndex = 1;
-            this.btnmathang.Text = "Car";
-            this.btnmathang.UseVisualStyleBackColor = true;
+            this.btncar.FlatAppearance.BorderSize = 0;
+            this.btncar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btncar.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btncar.ForeColor = System.Drawing.Color.White;
+            this.btncar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btncar.Location = new System.Drawing.Point(0, 236);
+            this.btncar.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.btncar.Name = "btncar";
+            this.btncar.Size = new System.Drawing.Size(253, 50);
+            this.btncar.TabIndex = 1;
+            this.btncar.Text = "Car";
+            this.btncar.UseVisualStyleBackColor = true;
+            this.btncar.Click += new System.EventHandler(this.btncar_Click);
             // 
-            // btnNhanVien
+            // btncustomer
             // 
-            this.btnNhanVien.FlatAppearance.BorderSize = 0;
-            this.btnNhanVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNhanVien.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNhanVien.ForeColor = System.Drawing.Color.White;
-            this.btnNhanVien.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNhanVien.Location = new System.Drawing.Point(0, 286);
-            this.btnNhanVien.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.btnNhanVien.Name = "btnNhanVien";
-            this.btnNhanVien.Size = new System.Drawing.Size(250, 50);
-            this.btnNhanVien.TabIndex = 2;
-            this.btnNhanVien.Text = "Customer";
-            this.btnNhanVien.UseVisualStyleBackColor = true;
+            this.btncustomer.FlatAppearance.BorderSize = 0;
+            this.btncustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btncustomer.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btncustomer.ForeColor = System.Drawing.Color.White;
+            this.btncustomer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btncustomer.Location = new System.Drawing.Point(0, 286);
+            this.btncustomer.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.btncustomer.Name = "btncustomer";
+            this.btncustomer.Size = new System.Drawing.Size(250, 50);
+            this.btncustomer.TabIndex = 2;
+            this.btncustomer.Text = "Customer";
+            this.btncustomer.UseVisualStyleBackColor = true;
+            this.btncustomer.Click += new System.EventHandler(this.btncustomer_Click);
             // 
-            // btnhoadon
+            // btnemployee
             // 
-            this.btnhoadon.FlatAppearance.BorderSize = 0;
-            this.btnhoadon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnhoadon.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnhoadon.ForeColor = System.Drawing.Color.White;
-            this.btnhoadon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnhoadon.Location = new System.Drawing.Point(0, 339);
-            this.btnhoadon.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-            this.btnhoadon.Name = "btnhoadon";
-            this.btnhoadon.Size = new System.Drawing.Size(250, 50);
-            this.btnhoadon.TabIndex = 2;
-            this.btnhoadon.Text = "Employee";
-            this.btnhoadon.UseVisualStyleBackColor = true;
+            this.btnemployee.FlatAppearance.BorderSize = 0;
+            this.btnemployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnemployee.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnemployee.ForeColor = System.Drawing.Color.White;
+            this.btnemployee.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnemployee.Location = new System.Drawing.Point(0, 339);
+            this.btnemployee.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.btnemployee.Name = "btnemployee";
+            this.btnemployee.Size = new System.Drawing.Size(250, 50);
+            this.btnemployee.TabIndex = 2;
+            this.btnemployee.Text = "Employee";
+            this.btnemployee.UseVisualStyleBackColor = true;
+            this.btnemployee.Click += new System.EventHandler(this.btnemployee_Click);
             // 
-            // btnphieunhap
+            // btnmanufactory
             // 
-            this.btnphieunhap.FlatAppearance.BorderSize = 0;
-            this.btnphieunhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnphieunhap.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.btnphieunhap.ForeColor = System.Drawing.Color.White;
-            this.btnphieunhap.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnphieunhap.Location = new System.Drawing.Point(0, 392);
-            this.btnphieunhap.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.btnphieunhap.Name = "btnphieunhap";
-            this.btnphieunhap.Size = new System.Drawing.Size(250, 50);
-            this.btnphieunhap.TabIndex = 2;
-            this.btnphieunhap.Text = "Manufactory";
-            this.btnphieunhap.UseVisualStyleBackColor = true;
+            this.btnmanufactory.FlatAppearance.BorderSize = 0;
+            this.btnmanufactory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnmanufactory.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.btnmanufactory.ForeColor = System.Drawing.Color.White;
+            this.btnmanufactory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnmanufactory.Location = new System.Drawing.Point(0, 392);
+            this.btnmanufactory.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.btnmanufactory.Name = "btnmanufactory";
+            this.btnmanufactory.Size = new System.Drawing.Size(250, 50);
+            this.btnmanufactory.TabIndex = 2;
+            this.btnmanufactory.Text = "Manufactory";
+            this.btnmanufactory.UseVisualStyleBackColor = true;
+            this.btnmanufactory.Click += new System.EventHandler(this.btnmanufactory_Click);
+            // 
+            // btnorder
+            // 
+            this.btnorder.FlatAppearance.BorderSize = 0;
+            this.btnorder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnorder.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.btnorder.ForeColor = System.Drawing.Color.White;
+            this.btnorder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnorder.Location = new System.Drawing.Point(0, 442);
+            this.btnorder.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.btnorder.Name = "btnorder";
+            this.btnorder.Size = new System.Drawing.Size(250, 50);
+            this.btnorder.TabIndex = 3;
+            this.btnorder.Text = "Order";
+            this.btnorder.UseVisualStyleBackColor = true;
+            this.btnorder.Click += new System.EventHandler(this.btnorder_Click);
+            // 
+            // btnservice
+            // 
+            this.btnservice.FlatAppearance.BorderSize = 0;
+            this.btnservice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnservice.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.btnservice.ForeColor = System.Drawing.Color.White;
+            this.btnservice.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnservice.Location = new System.Drawing.Point(0, 492);
+            this.btnservice.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.btnservice.Name = "btnservice";
+            this.btnservice.Size = new System.Drawing.Size(250, 50);
+            this.btnservice.TabIndex = 5;
+            this.btnservice.Text = "Service";
+            this.btnservice.UseVisualStyleBackColor = true;
+            this.btnservice.Click += new System.EventHandler(this.btnservice_Click);
             // 
             // mainpanel
             // 
@@ -135,51 +169,6 @@
             this.mainpanel.Name = "mainpanel";
             this.mainpanel.Size = new System.Drawing.Size(992, 739);
             this.mainpanel.TabIndex = 2;
-            // 
-            // button1
-            // 
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(0, 442);
-            this.button1.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(250, 50);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Order";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(0, 492);
-            this.button2.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(250, 50);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "PurcharOrder";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(0, 542);
-            this.button3.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(250, 50);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Service";
-            this.button3.UseVisualStyleBackColor = true;
             // 
             // frmain
             // 
@@ -190,6 +179,8 @@
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "frmain";
             this.Text = "frmain";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmain_FormClosing);
+            this.Load += new System.EventHandler(this.frmain_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pcBheader)).EndInit();
             this.ResumeLayout(false);
@@ -200,13 +191,12 @@
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.PictureBox pcBheader;
-        private System.Windows.Forms.Button btnmathang;
-        private System.Windows.Forms.Button btnNhanVien;
-        private System.Windows.Forms.Button btnhoadon;
-        private System.Windows.Forms.Button btnphieunhap;
+        private System.Windows.Forms.Button btncar;
+        private System.Windows.Forms.Button btncustomer;
+        private System.Windows.Forms.Button btnemployee;
+        private System.Windows.Forms.Button btnmanufactory;
         private System.Windows.Forms.Panel mainpanel;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnorder;
+        private System.Windows.Forms.Button btnservice;
     }
 }

@@ -12,9 +12,18 @@ namespace QuanLyShowRoomOto
 {
     public partial class frmain : Form
     {
-        public frmain()
+        public frmain(string role)
         {
             InitializeComponent();
+            if (role == "Admin")
+            {
+               
+            }
+            else if (role == "Employee")
+            {
+               btnemployee.Visible = false;
+                
+            }
         }
 
         public void loadform(object Form)
@@ -27,6 +36,47 @@ namespace QuanLyShowRoomOto
             this.mainpanel.Controls.Add(f);
             this.mainpanel.Tag = f;
             f.Show();
+        }
+      
+
+        private void frmain_Load(object sender, EventArgs e)
+        {
+        }
+
+        private void btncar_Click(object sender, EventArgs e)
+        {
+            loadform(new frmCar());
+
+        }
+
+        private void btncustomer_Click(object sender, EventArgs e)
+        {
+            loadform(new frmCustomer());
+        }
+
+        private void btnemployee_Click(object sender, EventArgs e)
+        {
+            loadform(new frmEmployee());
+        }
+
+        private void btnmanufactory_Click(object sender, EventArgs e)
+        {
+            loadform(new frmManufactory());
+        }
+
+        private void btnorder_Click(object sender, EventArgs e)
+        {
+            loadform(new frmOrder());
+        }
+
+        private void btnservice_Click(object sender, EventArgs e)
+        {
+            loadform(new frmService());
+        }
+
+        private void frmain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
