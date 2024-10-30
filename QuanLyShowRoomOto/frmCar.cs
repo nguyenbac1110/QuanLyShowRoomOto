@@ -32,6 +32,7 @@ namespace QuanLyShowRoomOto
             Hienthi();
             LoadManufactoryID();
         }
+
         public void Hienthi()
         {
             string sqlSelect = "select * from Car";
@@ -43,20 +44,21 @@ namespace QuanLyShowRoomOto
             dgv.DataSource = dt;
             dgv.AutoResizeColumns();
         }
+
         public void LoadManufactoryID()
         {
             string constring = ConfigurationManager.ConnectionStrings["ql"].ConnectionString;
             using (SqlConnection con = new SqlConnection(constring))
             {
                 con.Open();
-                string query = "SELECT ManufactoryID FROM Manufactory"; 
+                string query = "SELECT ManufactoryID FROM Manufactory";
                 using (SqlCommand cmd = new SqlCommand(query, con))
                 {
                     SqlDataReader reader = cmd.ExecuteReader();
                     cbxnsxId.Items.Clear();
                     while (reader.Read())
                     {
-                        cbxnsxId.Items.Add(reader["ManufactoryID"].ToString()); 
+                        cbxnsxId.Items.Add(reader["ManufactoryID"].ToString());
                     }
                 }
             }
@@ -86,8 +88,8 @@ namespace QuanLyShowRoomOto
             cmd.Parameters.AddWithValue("ModelName", txtmodel.Text);
             cmd.Parameters.AddWithValue("Name", txtten.Text);
             cmd.Parameters.AddWithValue("Price", txtgia.Text);
-            cmd.Parameters.AddWithValue("Status", txttt.Text); 
-            cmd.Parameters.AddWithValue("AddInfor",txtaddinf.Text);
+            cmd.Parameters.AddWithValue("Status", txttt.Text);
+            cmd.Parameters.AddWithValue("AddInfor", txtaddinf.Text);
             cmd.Parameters.AddWithValue("ManufactoryID", cbxnsxId.SelectedItem.ToString());
             cmd.ExecuteNonQuery();
             Hienthi();
@@ -109,11 +111,8 @@ namespace QuanLyShowRoomOto
             {
                 MessageBox.Show("Lỗi khi xóa mặt hàng: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
             Hienthi();
         }
-
-       
 
         private void btnsua_Click(object sender, EventArgs e)
         {

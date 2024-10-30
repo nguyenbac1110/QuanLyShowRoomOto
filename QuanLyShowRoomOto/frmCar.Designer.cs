@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -47,13 +47,6 @@
             this.txtgia = new System.Windows.Forms.TextBox();
             this.cbxnsxId = new System.Windows.Forms.ComboBox();
             this.dgv = new System.Windows.Forms.DataGridView();
-            this.btnthem = new System.Windows.Forms.Button();
-            this.btnxoa = new System.Windows.Forms.Button();
-            this.btnsua = new System.Windows.Forms.Button();
-            this.pnlthem_sua = new System.Windows.Forms.Panel();
-            this.pnlluu_boqua = new System.Windows.Forms.Panel();
-            this.btnluu = new System.Windows.Forms.Button();
-            this.btnboqua = new System.Windows.Forms.Button();
             this.CarID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ModelName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Name_ = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,6 +54,13 @@
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AddInfor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ManufactoryID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnthem = new System.Windows.Forms.Button();
+            this.btnxoa = new System.Windows.Forms.Button();
+            this.btnsua = new System.Windows.Forms.Button();
+            this.pnlthem_sua = new System.Windows.Forms.Panel();
+            this.pnlluu_boqua = new System.Windows.Forms.Panel();
+            this.btnboqua = new System.Windows.Forms.Button();
+            this.btnluu = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.pnlthem_sua.SuspendLayout();
             this.pnlluu_boqua.SuspendLayout();
@@ -205,14 +205,14 @@
             // dgv
             // 
             this.dgv.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Times New Roman", 10.2F);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 10.2F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CarID,
@@ -222,98 +222,29 @@
             this.Status,
             this.AddInfor,
             this.ManufactoryID});
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Times New Roman", 10.2F);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 10.2F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgv.Location = new System.Drawing.Point(16, 389);
             this.dgv.Name = "dgv";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Times New Roman", 10.2F);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 10.2F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv.RowHeadersWidth = 51;
             this.dgv.RowTemplate.Height = 24;
             this.dgv.Size = new System.Drawing.Size(929, 272);
             this.dgv.TabIndex = 97;
             this.dgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellClick);
-            // 
-            // btnthem
-            // 
-            this.btnthem.Location = new System.Drawing.Point(16, 26);
-            this.btnthem.Name = "btnthem";
-            this.btnthem.Size = new System.Drawing.Size(75, 23);
-            this.btnthem.TabIndex = 98;
-            this.btnthem.Text = "Thêm";
-            this.btnthem.UseVisualStyleBackColor = true;
-            this.btnthem.Click += new System.EventHandler(this.btnthem_Click);
-            // 
-            // btnxoa
-            // 
-            this.btnxoa.Location = new System.Drawing.Point(158, 26);
-            this.btnxoa.Name = "btnxoa";
-            this.btnxoa.Size = new System.Drawing.Size(75, 23);
-            this.btnxoa.TabIndex = 99;
-            this.btnxoa.Text = "Xóa";
-            this.btnxoa.UseVisualStyleBackColor = true;
-            this.btnxoa.Click += new System.EventHandler(this.btnxoa_Click);
-            // 
-            // btnsua
-            // 
-            this.btnsua.Location = new System.Drawing.Point(811, 154);
-            this.btnsua.Name = "btnsua";
-            this.btnsua.Size = new System.Drawing.Size(75, 23);
-            this.btnsua.TabIndex = 100;
-            this.btnsua.Text = "Sửa";
-            this.btnsua.UseVisualStyleBackColor = true;
-            this.btnsua.Click += new System.EventHandler(this.btnsua_Click);
-            // 
-            // pnlthem_sua
-            // 
-            this.pnlthem_sua.Controls.Add(this.btnthem);
-            this.pnlthem_sua.Controls.Add(this.btnxoa);
-            this.pnlthem_sua.Location = new System.Drawing.Point(520, 127);
-            this.pnlthem_sua.Name = "pnlthem_sua";
-            this.pnlthem_sua.Size = new System.Drawing.Size(253, 82);
-            this.pnlthem_sua.TabIndex = 101;
-            // 
-            // pnlluu_boqua
-            // 
-            this.pnlluu_boqua.Controls.Add(this.btnboqua);
-            this.pnlluu_boqua.Controls.Add(this.btnluu);
-            this.pnlluu_boqua.Location = new System.Drawing.Point(520, 244);
-            this.pnlluu_boqua.Name = "pnlluu_boqua";
-            this.pnlluu_boqua.Size = new System.Drawing.Size(253, 96);
-            this.pnlluu_boqua.TabIndex = 102;
-            this.pnlluu_boqua.Visible = false;
-            // 
-            // btnluu
-            // 
-            this.btnluu.Location = new System.Drawing.Point(25, 31);
-            this.btnluu.Name = "btnluu";
-            this.btnluu.Size = new System.Drawing.Size(75, 23);
-            this.btnluu.TabIndex = 100;
-            this.btnluu.Text = "Lưu";
-            this.btnluu.UseVisualStyleBackColor = true;
-            this.btnluu.Click += new System.EventHandler(this.btnluu_Click);
-            // 
-            // btnboqua
-            // 
-            this.btnboqua.Location = new System.Drawing.Point(158, 31);
-            this.btnboqua.Name = "btnboqua";
-            this.btnboqua.Size = new System.Drawing.Size(75, 23);
-            this.btnboqua.TabIndex = 101;
-            this.btnboqua.Text = "Bỏ qua";
-            this.btnboqua.UseVisualStyleBackColor = true;
-            this.btnboqua.Click += new System.EventHandler(this.btnboqua_Click);
             // 
             // CarID
             // 
@@ -370,6 +301,75 @@
             this.ManufactoryID.MinimumWidth = 6;
             this.ManufactoryID.Name = "ManufactoryID";
             this.ManufactoryID.Width = 125;
+            // 
+            // btnthem
+            // 
+            this.btnthem.Location = new System.Drawing.Point(16, 26);
+            this.btnthem.Name = "btnthem";
+            this.btnthem.Size = new System.Drawing.Size(75, 23);
+            this.btnthem.TabIndex = 98;
+            this.btnthem.Text = "Thêm";
+            this.btnthem.UseVisualStyleBackColor = true;
+            this.btnthem.Click += new System.EventHandler(this.btnthem_Click);
+            // 
+            // btnxoa
+            // 
+            this.btnxoa.Location = new System.Drawing.Point(158, 26);
+            this.btnxoa.Name = "btnxoa";
+            this.btnxoa.Size = new System.Drawing.Size(75, 23);
+            this.btnxoa.TabIndex = 99;
+            this.btnxoa.Text = "Xóa";
+            this.btnxoa.UseVisualStyleBackColor = true;
+            this.btnxoa.Click += new System.EventHandler(this.btnxoa_Click);
+            // 
+            // btnsua
+            // 
+            this.btnsua.Location = new System.Drawing.Point(811, 154);
+            this.btnsua.Name = "btnsua";
+            this.btnsua.Size = new System.Drawing.Size(75, 23);
+            this.btnsua.TabIndex = 100;
+            this.btnsua.Text = "Sửa";
+            this.btnsua.UseVisualStyleBackColor = true;
+            this.btnsua.Click += new System.EventHandler(this.btnsua_Click);
+            // 
+            // pnlthem_sua
+            // 
+            this.pnlthem_sua.Controls.Add(this.btnthem);
+            this.pnlthem_sua.Controls.Add(this.btnxoa);
+            this.pnlthem_sua.Location = new System.Drawing.Point(520, 127);
+            this.pnlthem_sua.Name = "pnlthem_sua";
+            this.pnlthem_sua.Size = new System.Drawing.Size(253, 82);
+            this.pnlthem_sua.TabIndex = 101;
+            // 
+            // pnlluu_boqua
+            // 
+            this.pnlluu_boqua.Controls.Add(this.btnboqua);
+            this.pnlluu_boqua.Controls.Add(this.btnluu);
+            this.pnlluu_boqua.Location = new System.Drawing.Point(520, 244);
+            this.pnlluu_boqua.Name = "pnlluu_boqua";
+            this.pnlluu_boqua.Size = new System.Drawing.Size(253, 96);
+            this.pnlluu_boqua.TabIndex = 102;
+            this.pnlluu_boqua.Visible = false;
+            // 
+            // btnboqua
+            // 
+            this.btnboqua.Location = new System.Drawing.Point(158, 31);
+            this.btnboqua.Name = "btnboqua";
+            this.btnboqua.Size = new System.Drawing.Size(75, 23);
+            this.btnboqua.TabIndex = 101;
+            this.btnboqua.Text = "Bỏ qua";
+            this.btnboqua.UseVisualStyleBackColor = true;
+            this.btnboqua.Click += new System.EventHandler(this.btnboqua_Click);
+            // 
+            // btnluu
+            // 
+            this.btnluu.Location = new System.Drawing.Point(25, 31);
+            this.btnluu.Name = "btnluu";
+            this.btnluu.Size = new System.Drawing.Size(75, 23);
+            this.btnluu.TabIndex = 100;
+            this.btnluu.Text = "Lưu";
+            this.btnluu.UseVisualStyleBackColor = true;
+            this.btnluu.Click += new System.EventHandler(this.btnluu_Click);
             // 
             // frmCar
             // 
