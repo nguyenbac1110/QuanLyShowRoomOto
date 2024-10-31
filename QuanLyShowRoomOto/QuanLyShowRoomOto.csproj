@@ -115,6 +115,9 @@
     <EmbeddedResource Include="frmCar.resx">
       <DependentUpon>frmCar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCustomer.resx">
+      <DependentUpon>frmCustomer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDangNhap.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
