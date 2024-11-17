@@ -16,50 +16,35 @@ namespace QuanLyShowRoomOto
 {
     public partial class frmCar : Form
     {
+        private Car car;
         public frmCar()
         {
             InitializeComponent();
+            car = new Car();
         }
-        SqlConnection con;
-
-        SqlDataAdapter adapter = new SqlDataAdapter();
-
         private void frmCar_Load(object sender, EventArgs e)
         {
-            string constring = ConfigurationManager.ConnectionStrings["ql"].ConnectionString.ToString();
-            con = new SqlConnection(constring);
-            con.Open();
-            Hienthi();
+            HienThiXe();
             LoadManufactoryID();
         }
-        public void Hienthi()
+        private void HienThiXe()
         {
-            string sqlSelect = "select * from Car";
-            SqlCommand cmd = new SqlCommand(sqlSelect, con);
-            DataTable dt = new DataTable();
-            adapter.SelectCommand = cmd;
-            dt.Clear();
-            adapter.Fill(dt);
-            dgv.DataSource = dt;
+            dgv.DataSource = car.LayDSXe();
             dgv.AutoResizeColumns();
         }
         public void LoadManufactoryID()
         {
-            string constring = ConfigurationManager.ConnectionStrings["ql"].ConnectionString;
-            using (SqlConnection con = new SqlConnection(constring))
+            cbxnsxId.Items.Clear();
+            DataTable dt = car.Load_ManufactoryID();
+            foreach (DataRow row in dt.Rows)
             {
-                con.Open();
-                string query = "SELECT ManufactoryID FROM Manufactory"; 
-                using (SqlCommand cmd = new SqlCommand(query, con))
-                {
-                    SqlDataReader reader = cmd.ExecuteReader();
-                    cbxnsxId.Items.Clear();
-                    while (reader.Read())
-                    {
-                        cbxnsxId.Items.Add(reader["ManufactoryID"].ToString()); 
-                    }
-                }
+                cbxnsxId.Items.Add(row["ManufactoryID"].ToString());
             }
+            cbxnsxId.SelectedIndex = 0;
+        }
+        private bool KtraMa(string carID)
+        {
+            return car.KtraMa(carID);
         }
 
         private void dgv_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -80,43 +65,58 @@ namespace QuanLyShowRoomOto
 
         private void btnthem_Click(object sender, EventArgs e)
         {
-            string sqlINSERT = "INSERT INTO Car(CarID,ModelName, Name, Price, Status, AddInfor, ManufactoryID) VALUES (@CarID,@ModelName, @Name, @Price, @Status, @AddInfor, @ManufactoryID)";
-            SqlCommand cmd = new SqlCommand(sqlINSERT, con);
-            cmd.Parameters.AddWithValue("CarID", txtma.Text);
-            cmd.Parameters.AddWithValue("ModelName", txtmodel.Text);
-            cmd.Parameters.AddWithValue("Name", txtten.Text);
-            cmd.Parameters.AddWithValue("Price", txtgia.Text);
-            cmd.Parameters.AddWithValue("Status", txttt.Text); 
-            cmd.Parameters.AddWithValue("AddInfor",txtaddinf.Text);
-            cmd.Parameters.AddWithValue("ManufactoryID", cbxnsxId.SelectedItem.ToString());
-            cmd.ExecuteNonQuery();
-            Hienthi();
-            MessageBox.Show("Đã thêm mới xe thành công!"); ;
+            if (KiemTraRong())
+            {
+                MessageBox.Show("Xin hãy vui lòng nhập đầy đủ thông tin!");
+                return;
+            }
+            if (KtraMa(txtma.Text))
+            {
+                MessageBox.Show("Mã xe đã tồn tại!");
+                return;
+            }
+            try
+            {
+                car.CreateCar(txtma.Text, txtmodel.Text, txtten.Text, decimal.Parse(txtgia.Text), txttt.Text, txtaddinf.Text, cbxnsxId.Text);
+                HienThiXe();
+                Setrong();
+                MessageBox.Show("Thêm xe thành công!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi thêm xe: " + ex.Message);
+            }
         }
 
         private void btnxoa_Click(object sender, EventArgs e)
         {
-            string sqlDELETE = "DELETE FROM Car WHERE CarID = @CarID";
-            SqlCommand cmd = new SqlCommand(sqlDELETE, con);
-            cmd.Parameters.AddWithValue("@CarID", txtma.Text);
+            if (string.IsNullOrWhiteSpace(txtma.Text))
+            {
+                MessageBox.Show("Vui lòng nhập mã xe cần xóa!");
+                return;
+            }
+
+            if (!KtraMa(txtma.Text))
+            {
+                MessageBox.Show("Mã xe không tồn tại!");
+                return;
+            }
+
             try
             {
-                cmd.ExecuteNonQuery();
-                Hienthi();
-                MessageBox.Show("Xóa thành công!");
+                car.DeleteCar(txtma.Text);
+                HienThiXe();
+                Setrong();
+                MessageBox.Show("Xóa xe thành công!");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi xóa mặt hàng: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi khi xóa xe: " + ex.Message);
             }
-
-            Hienthi();
         }
-
-       
-
         private void btnsua_Click(object sender, EventArgs e)
         {
+            txtma.Enabled = false;
             pnlluu_boqua.Visible = true;
             pnlthem_sua.Visible = false;
         }
@@ -125,22 +125,50 @@ namespace QuanLyShowRoomOto
         {
             pnlluu_boqua.Visible = false;
             pnlthem_sua.Visible = true;
+            txtma.Enabled = true;
+
         }
 
         private void btnluu_Click(object sender, EventArgs e)
         {
-            string sqlEDIT = "UPDATE Car SET ModelName = @ModelName,Name = @Name,Price =@Price,Status = @Status,AddInfor = @AddInfor where CarID =@CarID";
-            SqlCommand cmd = new SqlCommand(sqlEDIT, con);
-            cmd.Parameters.AddWithValue("CarID", txtma.Text);
-            cmd.Parameters.AddWithValue("ModelName", txtmodel.Text);
-            cmd.Parameters.AddWithValue("Name", txtten.Text);
-            cmd.Parameters.AddWithValue("Price", txtgia.Text);
-            cmd.Parameters.AddWithValue("Status", txttt.Text);
-            cmd.Parameters.AddWithValue("AddInfor", txtaddinf.Text);
-            cmd.Parameters.AddWithValue("ManufactoryID", cbxnsxId.SelectedItem.ToString());
-            cmd.ExecuteNonQuery();
-            Hienthi();
-            MessageBox.Show("Đã sửa thông tin xe có mã xe là: " + txtma.Text);
+            if (KiemTraRong())
+            {
+                MessageBox.Show("Vui lòng điền đầy đủ thông tin!");
+                return;
+            }
+
+            if (!KtraMa(txtma.Text))
+            {
+                MessageBox.Show("Mã xe không tồn tại!");
+                return;
+            }
+            try
+            {
+                car.UpdateCar(txtma.Text, txtmodel.Text, txtten.Text, decimal.Parse(txtgia.Text), txttt.Text, txtaddinf.Text, cbxnsxId.Text);
+                HienThiXe();
+                Setrong();
+                MessageBox.Show("Cập nhật xe thành công!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi cập nhật xe: " + ex.Message);
+            }
+            txtma.Enabled = true;
+
+        }
+        private bool KiemTraRong()
+        {
+            return string.IsNullOrWhiteSpace(txtma.Text) || string.IsNullOrWhiteSpace(txtmodel.Text) || string.IsNullOrWhiteSpace(txtgia.Text) || string.IsNullOrWhiteSpace(txttt.Text) || string.IsNullOrWhiteSpace(txtaddinf.Text);
+        }
+
+        private void Setrong()
+        {
+            txtma.Clear();
+            txtmodel.Clear();
+            txtgia.Clear();
+            txttt.Clear();
+            txtaddinf.Clear();
+            txtten.Clear();
         }
     }
 }
