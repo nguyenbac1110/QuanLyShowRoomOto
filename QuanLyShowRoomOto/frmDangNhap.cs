@@ -15,9 +15,7 @@ namespace QuanLyShowRoomOto
 {
     public partial class frmDangNhap : Form
     {
-        SqlConnection con;
-
-        SqlDataAdapter adapter = new SqlDataAdapter();
+        dangnhap dangnhap;
         public frmDangNhap()
         {
             InitializeComponent();
@@ -27,43 +25,30 @@ namespace QuanLyShowRoomOto
         {
             string username = txttk.Text.Trim();
             string password = txtmk.Text.Trim();
-            if (username == "admin" && password == "admin")
+
+            if (dangnhap.CheckAdminLogin(username, password))
             {
-                frmain mainForm = new frmain("Admin"); 
+                MessageBox.Show("Đăng nhập Admin thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                frmain mainForm = new frmain("Admin", null, null, null);
                 mainForm.Show();
                 this.Hide();
-                return; 
+                return;
             }
-            string query = "SELECT COUNT(*) FROM Employee WHERE Username = @username AND Password = @password";
-
-            using (SqlCommand cmd = new SqlCommand(query, con))
+            if (dangnhap.CheckEmployeeLogin(username, password))
             {
-                cmd.Parameters.AddWithValue("@username", username);
-                cmd.Parameters.AddWithValue("@password", password);
-
-                int count = (int)cmd.ExecuteScalar(); 
-
-                if (count > 0)
-                {
-                    MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    frmain mainForm = new frmain("Employee"); 
-                    mainForm.Show();
-                    this.Hide(); 
-                }
-                else
-                {
-                    MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng.", "Lỗi đăng nhập", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                var employeeInfo = dangnhap.GetEmployeeInfo(username);
+                MessageBox.Show("Đăng nhập Employee thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                frmain mainForm = new frmain("Employee", employeeInfo.FirstName, employeeInfo.LastName, employeeInfo.Sex);
+                mainForm.Show();
+                this.Hide();
+                return;
             }
-
-           
+            MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng.", "Lỗi đăng nhập", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void frmDangNhap_Load(object sender, EventArgs e)
         {
-            string constring = ConfigurationManager.ConnectionStrings["ql"].ConnectionString.ToString();
-            con = new SqlConnection(constring);
-            con.Open();
+           dangnhap = new dangnhap();
         }
     }
 }

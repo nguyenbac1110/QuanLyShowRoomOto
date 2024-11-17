@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace QuanLyShowRoomOto
 {
-    public partial class Form1 : Form
+    public partial class frmTimKiem_e : Form
     {
-        public Form1()
+        public frmTimKiem_e()
         {
             InitializeComponent();
         }

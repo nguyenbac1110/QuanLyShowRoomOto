@@ -49,13 +49,9 @@
   <ItemGroup>
     <Compile Include="Car.cs" />
     <Compile Include="Customer.cs" />
+    <Compile Include="dangnhap.cs" />
     <Compile Include="Employee.cs" />
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
+    <Compile Include="EmployeeInfo.cs" />
     <Compile Include="frmain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +100,20 @@
     <Compile Include="frmService.Designer.cs">
       <DependentUpon>frmService.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmTimKiem_a.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTimKiem_a.Designer.cs">
+      <DependentUpon>frmTimKiem_a.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TimKiem_a.cs" />
+    <Compile Include="TimKiem_e.cs" />
+    <Compile Include="frmTimKiem_e.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTimKiem_e.Designer.cs">
+      <DependentUpon>frmTimKiem_e.cs</DependentUpon>
+    </Compile>
     <Compile Include="KetNoi.cs" />
     <Compile Include="Manufactory.cs" />
     <Compile Include="Program.cs" />
@@ -129,6 +139,9 @@
     <EmbeddedResource Include="frmOrder.resx">
       <DependentUpon>frmOrder.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmTimKiem_a.resx">
+      <DependentUpon>frmTimKiem_a.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -137,6 +150,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -153,6 +167,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Database\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\anh-admin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\anh-nam.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\anh-nu.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

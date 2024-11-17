@@ -48,6 +48,34 @@ namespace QuanLyShowRoomOto
             }
             return dt;
         }
+        public DataTable ReadData_Para(string sql, SqlParameter[] parameters = null)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                openConnection();
+                using (SqlCommand cmd = new SqlCommand(sql, con))
+                {
+                    if (parameters != null)
+                    {
+                        cmd.Parameters.AddRange(parameters);
+                    }
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        dt.Load(reader);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                closeConnection();
+            }
+            return dt;
+        }
         public void CreateUpdateDelete(string sql, SqlParameter[] sqlParameters = null)
         {
             try
@@ -67,6 +95,22 @@ namespace QuanLyShowRoomOto
             {
                 closeConnection();
             }
+        }
+        public async Task<DataTable> ReadDataAsync(string sql)
+        {
+            DataTable dt = new DataTable();
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ql"].ConnectionString))
+            {
+                await conn.OpenAsync();
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                    {
+                        dt.Load(reader);
+                    }
+                }
+            }
+            return dt;
         }
     }
 }
