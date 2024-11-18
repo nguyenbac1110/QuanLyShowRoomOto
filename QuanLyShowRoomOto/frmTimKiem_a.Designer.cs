@@ -33,10 +33,9 @@
             this.btnkq = new System.Windows.Forms.Button();
             this.cbxcot = new System.Windows.Forms.ComboBox();
             this.cbxbang = new System.Windows.Forms.ComboBox();
-            this.lbltenbang = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cbxdl = new System.Windows.Forms.ComboBox();
-            this.lbltencot = new System.Windows.Forms.Label();
+            this.txtnhap = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,9 +52,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(756, 127);
+            this.button2.Location = new System.Drawing.Point(822, 145);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(104, 37);
             this.button2.TabIndex = 21;
             this.button2.Text = "Thoát";
             this.button2.UseVisualStyleBackColor = true;
@@ -63,9 +62,9 @@
             // 
             // btnkq
             // 
-            this.btnkq.Location = new System.Drawing.Point(590, 119);
+            this.btnkq.Location = new System.Drawing.Point(672, 145);
             this.btnkq.Name = "btnkq";
-            this.btnkq.Size = new System.Drawing.Size(99, 39);
+            this.btnkq.Size = new System.Drawing.Size(124, 37);
             this.btnkq.TabIndex = 20;
             this.btnkq.Text = "Xem kết quả";
             this.btnkq.UseVisualStyleBackColor = true;
@@ -98,14 +97,6 @@
             this.cbxbang.TabIndex = 18;
             this.cbxbang.SelectedIndexChanged += new System.EventHandler(this.cbxbang_SelectedIndexChanged);
             // 
-            // lbltenbang
-            // 
-            this.lbltenbang.AutoSize = true;
-            this.lbltenbang.Location = new System.Drawing.Point(75, 158);
-            this.lbltenbang.Name = "lbltenbang";
-            this.lbltenbang.Size = new System.Drawing.Size(0, 16);
-            this.lbltenbang.TabIndex = 17;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -124,27 +115,25 @@
             this.cbxdl.TabIndex = 23;
             this.cbxdl.SelectedIndexChanged += new System.EventHandler(this.cbxdl_SelectedIndexChanged);
             // 
-            // lbltencot
+            // txtnhap
             // 
-            this.lbltencot.AutoSize = true;
-            this.lbltencot.Location = new System.Drawing.Point(75, 208);
-            this.lbltencot.Name = "lbltencot";
-            this.lbltencot.Size = new System.Drawing.Size(0, 16);
-            this.lbltencot.TabIndex = 24;
+            this.txtnhap.Location = new System.Drawing.Point(409, 160);
+            this.txtnhap.Name = "txtnhap";
+            this.txtnhap.Size = new System.Drawing.Size(187, 22);
+            this.txtnhap.TabIndex = 24;
             // 
             // frmTimKiem_a
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(968, 662);
-            this.Controls.Add(this.lbltencot);
+            this.Controls.Add(this.txtnhap);
             this.Controls.Add(this.cbxdl);
             this.Controls.Add(this.dgv);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnkq);
             this.Controls.Add(this.cbxcot);
             this.Controls.Add(this.cbxbang);
-            this.Controls.Add(this.lbltenbang);
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmTimKiem_a";
@@ -164,9 +153,8 @@
         private System.Windows.Forms.Button btnkq;
         private System.Windows.Forms.ComboBox cbxcot;
         private System.Windows.Forms.ComboBox cbxbang;
-        private System.Windows.Forms.Label lbltenbang;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbxdl;
-        private System.Windows.Forms.Label lbltencot;
+        private System.Windows.Forms.TextBox txtnhap;
     }
 }

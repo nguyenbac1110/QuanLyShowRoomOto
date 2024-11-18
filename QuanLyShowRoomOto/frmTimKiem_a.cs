@@ -20,7 +20,34 @@ namespace QuanLyShowRoomOto
 
         private void btnkq_Click(object sender, EventArgs e)
         {
+            if (cbxbang.SelectedItem != null && cbxcot.SelectedValue != null && !string.IsNullOrWhiteSpace(txtnhap.Text))
+            {
+                string selectedTable = cbxbang.SelectedItem.ToString(); 
+                string selectedColumn = cbxcot.SelectedValue.ToString(); 
+                string inputValue = txtnhap.Text.Trim(); 
 
+                try
+                {
+                    DataTable dtResult = tk.TimKiemDuLieu(selectedTable, selectedColumn, inputValue);
+
+                    if (dtResult != null && dtResult.Rows.Count > 0)
+                    {
+                        dgv.DataSource = dtResult; 
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy kết quả nào phù hợp.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Lỗi khi tìm kiếm: {ex.Message}");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn bảng, cột và nhập giá trị tìm kiếm.");
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -42,10 +69,14 @@ namespace QuanLyShowRoomOto
                     cbxcot.ValueMember = "COLUMN_NAME";
 
                     cbxdl.DataSource = null;
+                    cbxdl.DisplayMember = string.Empty;
+                    cbxdl.ValueMember = string.Empty;
                 }
                 else
                 {
                     MessageBox.Show("Không có cột nào trong bảng đã chọn.");
+                    cbxcot.DataSource = null;
+                    cbxdl.DataSource = null;
                 }
             }
         }
@@ -65,13 +96,13 @@ namespace QuanLyShowRoomOto
                  DataTable dtData = tk.LayDuLieu(selectedTable, selectedColumn);
                 if (dtData != null && dtData.Rows.Count > 0)
                 {
-                    cbxdl.DataSource = null;
                     cbxdl.DataSource = dtData;
-                    cbxdl.DisplayMember = selectedColumn;
+                    cbxdl.DisplayMember = selectedColumn; 
                     cbxdl.ValueMember = selectedColumn;
                 }
                else
                {
+                    cbxdl.DataSource = null;
                     MessageBox.Show("Không có dữ liệu nào cho cột đã chọn.");
                }
                 
@@ -104,10 +135,7 @@ namespace QuanLyShowRoomOto
                     MessageBox.Show($"Lỗi tìm kiếm: {ex.Message}");
                 }
             }
-            else
-            {
-                MessageBox.Show("Vui lòng chọn giá trị, bảng và cột hợp lệ.");
-            }
+         
         }
 
         private void frmTimKiem_a_Load(object sender, EventArgs e)

@@ -31,7 +31,6 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblten = new System.Windows.Forms.Label();
-            this.pbheader = new System.Windows.Forms.PictureBox();
             this.btncar = new System.Windows.Forms.Button();
             this.btncustomer = new System.Windows.Forms.Button();
             this.btnemployee = new System.Windows.Forms.Button();
@@ -41,6 +40,9 @@
             this.btntimkiem_e = new System.Windows.Forms.Button();
             this.btntimkiem_a = new System.Windows.Forms.Button();
             this.mainpanel = new System.Windows.Forms.Panel();
+            this.btndangxuat = new System.Windows.Forms.Button();
+            this.btnttcn = new System.Windows.Forms.Button();
+            this.pbheader = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbheader)).BeginInit();
@@ -58,10 +60,12 @@
             this.flowLayoutPanel1.Controls.Add(this.btnservice);
             this.flowLayoutPanel1.Controls.Add(this.btntimkiem_e);
             this.flowLayoutPanel1.Controls.Add(this.btntimkiem_a);
+            this.flowLayoutPanel1.Controls.Add(this.btndangxuat);
+            this.flowLayoutPanel1.Controls.Add(this.btnttcn);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(250, 739);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(250, 783);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // panel1
@@ -81,15 +85,6 @@
             this.lblten.Size = new System.Drawing.Size(44, 16);
             this.lblten.TabIndex = 1;
             this.lblten.Text = "label1";
-            // 
-            // pbheader
-            // 
-            this.pbheader.Location = new System.Drawing.Point(9, 9);
-            this.pbheader.Name = "pbheader";
-            this.pbheader.Size = new System.Drawing.Size(201, 161);
-            this.pbheader.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbheader.TabIndex = 0;
-            this.pbheader.TabStop = false;
             // 
             // btncar
             // 
@@ -217,20 +212,62 @@
             this.btntimkiem_a.TabIndex = 8;
             this.btntimkiem_a.Text = "Tìm kiếm";
             this.btntimkiem_a.UseVisualStyleBackColor = true;
+            this.btntimkiem_a.Click += new System.EventHandler(this.btntimkiem_a_Click);
             // 
             // mainpanel
             // 
             this.mainpanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainpanel.Location = new System.Drawing.Point(250, 0);
             this.mainpanel.Name = "mainpanel";
-            this.mainpanel.Size = new System.Drawing.Size(992, 739);
+            this.mainpanel.Size = new System.Drawing.Size(991, 783);
             this.mainpanel.TabIndex = 2;
+            // 
+            // btndangxuat
+            // 
+            this.btndangxuat.FlatAppearance.BorderSize = 0;
+            this.btndangxuat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btndangxuat.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.btndangxuat.ForeColor = System.Drawing.Color.White;
+            this.btndangxuat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btndangxuat.Location = new System.Drawing.Point(0, 653);
+            this.btndangxuat.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.btndangxuat.Name = "btndangxuat";
+            this.btndangxuat.Size = new System.Drawing.Size(250, 50);
+            this.btndangxuat.TabIndex = 9;
+            this.btndangxuat.Text = "Đăng xuất";
+            this.btndangxuat.UseVisualStyleBackColor = true;
+            this.btndangxuat.Click += new System.EventHandler(this.btndangxuat_Click);
+            // 
+            // btnttcn
+            // 
+            this.btnttcn.FlatAppearance.BorderSize = 0;
+            this.btnttcn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnttcn.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.btnttcn.ForeColor = System.Drawing.Color.White;
+            this.btnttcn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnttcn.Location = new System.Drawing.Point(0, 703);
+            this.btnttcn.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.btnttcn.Name = "btnttcn";
+            this.btnttcn.Size = new System.Drawing.Size(250, 50);
+            this.btnttcn.TabIndex = 10;
+            this.btnttcn.Text = "Thông tin cá nhân";
+            this.btnttcn.UseVisualStyleBackColor = true;
+            this.btnttcn.Click += new System.EventHandler(this.btnttcn_Click);
+            // 
+            // pbheader
+            // 
+            this.pbheader.Location = new System.Drawing.Point(9, 9);
+            this.pbheader.Name = "pbheader";
+            this.pbheader.Size = new System.Drawing.Size(201, 161);
+            this.pbheader.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbheader.TabIndex = 0;
+            this.pbheader.TabStop = false;
             // 
             // frmain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1242, 739);
+            this.ClientSize = new System.Drawing.Size(1241, 783);
             this.Controls.Add(this.mainpanel);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "frmain";
@@ -260,5 +297,7 @@
         private System.Windows.Forms.PictureBox pbheader;
         private System.Windows.Forms.Button btntimkiem_e;
         private System.Windows.Forms.Button btntimkiem_a;
+        private System.Windows.Forms.Button btndangxuat;
+        private System.Windows.Forms.Button btnttcn;
     }
 }

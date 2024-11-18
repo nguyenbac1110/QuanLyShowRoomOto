@@ -29,7 +29,7 @@ namespace QuanLyShowRoomOto
             if (dangnhap.CheckAdminLogin(username, password))
             {
                 MessageBox.Show("Đăng nhập Admin thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                frmain mainForm = new frmain("Admin", null, null, null);
+                frmain mainForm = new frmain("Admin", null, null, null, null);
                 mainForm.Show();
                 this.Hide();
                 return;
@@ -37,11 +37,14 @@ namespace QuanLyShowRoomOto
             if (dangnhap.CheckEmployeeLogin(username, password))
             {
                 var employeeInfo = dangnhap.GetEmployeeInfo(username);
-                MessageBox.Show("Đăng nhập Employee thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                frmain mainForm = new frmain("Employee", employeeInfo.FirstName, employeeInfo.LastName, employeeInfo.Sex);
-                mainForm.Show();
-                this.Hide();
-                return;
+                if (employeeInfo != null)
+                {
+                    MessageBox.Show("Đăng nhập Employee thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    frmain mainForm = new frmain("Employee", employeeInfo.FirstName, employeeInfo.LastName, employeeInfo.Sex, employeeInfo.EmployeeID);
+                    mainForm.Show();
+                    this.Hide();
+                    return;
+                }
             }
             MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng.", "Lỗi đăng nhập", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }

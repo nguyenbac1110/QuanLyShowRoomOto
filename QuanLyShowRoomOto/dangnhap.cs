@@ -44,7 +44,7 @@ namespace QuanLyShowRoomOto
         }
         public EmployeeInfo GetEmployeeInfo(string username)
         {
-            string sql = "SELECT FirstName, LastName, Sex FROM Employee WHERE Username = @username";
+            string sql = "SELECT  EmployeeID,FirstName, LastName, Sex FROM Employee WHERE Username = @username";
             SqlParameter[] parameters = new SqlParameter[]
             {
             new SqlParameter("@username", username)
@@ -56,9 +56,10 @@ namespace QuanLyShowRoomOto
             {
                 return new EmployeeInfo
                 {
+                    EmployeeID = dt.Rows[0]["EmployeeID"].ToString(),
                     FirstName = dt.Rows[0]["FirstName"].ToString(),
                     LastName = dt.Rows[0]["LastName"].ToString(),
-                    Sex = dt.Rows[0]["Sex"].ToString()
+                    Sex = dt.Rows[0]["Sex"].ToString(),
                 };
             }
 

@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="canhan.cs" />
     <Compile Include="Car.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="dangnhap.cs" />
@@ -57,6 +58,12 @@
     </Compile>
     <Compile Include="frmain.Designer.cs">
       <DependentUpon>frmain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmcanhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmcanhan.Designer.cs">
+      <DependentUpon>frmcanhan.cs</DependentUpon>
     </Compile>
     <Compile Include="frmCar.cs">
       <SubType>Form</SubType>
@@ -107,7 +114,6 @@
       <DependentUpon>frmTimKiem_a.cs</DependentUpon>
     </Compile>
     <Compile Include="TimKiem_a.cs" />
-    <Compile Include="TimKiem_e.cs" />
     <Compile Include="frmTimKiem_e.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +126,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmain.resx">
       <DependentUpon>frmain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmcanhan.resx">
+      <DependentUpon>frmcanhan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCar.resx">
       <DependentUpon>frmCar.cs</DependentUpon>
@@ -141,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmTimKiem_a.resx">
       <DependentUpon>frmTimKiem_a.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTimKiem_e.resx">
+      <DependentUpon>frmTimKiem_e.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -12,13 +12,21 @@ namespace QuanLyShowRoomOto
 {
     public partial class frmain : Form
     {
-        public frmain(string role, string firstName, string lastName, string sex)
+        private string employeeID;
+
+        public frmain(string role, string firstName, string lastName, string sex, string employeeID)
         {
             InitializeComponent();
+            this.employeeID = employeeID;
+
             if (role == "Admin")
             {
                 pbheader.Image = Properties.Resources.anh_nam;
                 lblten.Text = "Admin";
+                btntimkiem_e.Visible = false;
+                btntimkiem_a.Visible = true;
+                btnttcn.Visible = false;
+                btndangxuat.Visible = true;
             }
             else if (role == "Employee")
             {
@@ -33,7 +41,10 @@ namespace QuanLyShowRoomOto
                     pbheader.Image = Properties.Resources.anh_nu; 
                 }
                 btnemployee.Visible = false;
-                
+                btntimkiem_e.Visible = true;
+                btntimkiem_a.Visible = false;
+                btndangxuat.Visible = false;
+                btnttcn.Visible = true;
             }
         }
 
@@ -103,7 +114,35 @@ namespace QuanLyShowRoomOto
 
         private void btntimkiem_e_Click(object sender, EventArgs e)
         {
+            loadform(new frmTimKiem_e());
+        }
+
+        private void btntimkiem_a_Click(object sender, EventArgs e)
+        {
             loadform(new frmTimKiem_a());
+        }
+
+        private void btndangxuat_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show( "Bạn có chắc chắn muốn đăng xuất không?","Xác nhận đăng xuất",  MessageBoxButtons.YesNo, MessageBoxIcon.Question  );
+            if (result == DialogResult.Yes)
+            {
+                frmDangNhap frmDangNhap = new frmDangNhap();
+                frmDangNhap.Show(); 
+                this.Hide();
+            }
+        }
+
+        private void btnttcn_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(employeeID))
+            {
+                loadform(new frmcanhan(employeeID, this));
+            }
+            else
+            {
+                MessageBox.Show("Không thể tải thông tin nhân viên. Vui lòng đăng nhập lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

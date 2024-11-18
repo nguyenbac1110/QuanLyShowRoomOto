@@ -35,7 +35,7 @@ namespace QuanLyShowRoomOto
             {
              new SqlParameter("@Value", value)
             };
-            return kn.ReadData(sql);
+            return kn.ReadData_Para(sql, parameters);
         }
     }
 }

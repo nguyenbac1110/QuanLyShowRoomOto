@@ -96,22 +96,7 @@ namespace QuanLyShowRoomOto
                 closeConnection();
             }
         }
-        public async Task<DataTable> ReadDataAsync(string sql)
-        {
-            DataTable dt = new DataTable();
-            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ql"].ConnectionString))
-            {
-                await conn.OpenAsync();
-                using (SqlCommand cmd = new SqlCommand(sql, conn))
-                {
-                    using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
-                    {
-                        dt.Load(reader);
-                    }
-                }
-            }
-            return dt;
-        }
+      
     }
 }
 
