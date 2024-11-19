@@ -50,9 +50,9 @@
             // 
             // btnsua
             // 
-            this.btnsua.Location = new System.Drawing.Point(82, 337);
+            this.btnsua.Location = new System.Drawing.Point(174, 230);
             this.btnsua.Name = "btnsua";
-            this.btnsua.Size = new System.Drawing.Size(75, 23);
+            this.btnsua.Size = new System.Drawing.Size(93, 31);
             this.btnsua.TabIndex = 0;
             this.btnsua.Text = "Sửa";
             this.btnsua.UseVisualStyleBackColor = true;
@@ -60,9 +60,9 @@
             // 
             // btnluu
             // 
-            this.btnluu.Location = new System.Drawing.Point(331, 337);
+            this.btnluu.Location = new System.Drawing.Point(423, 230);
             this.btnluu.Name = "btnluu";
-            this.btnluu.Size = new System.Drawing.Size(75, 23);
+            this.btnluu.Size = new System.Drawing.Size(93, 31);
             this.btnluu.TabIndex = 1;
             this.btnluu.Text = "Lưu";
             this.btnluu.UseVisualStyleBackColor = true;
@@ -71,9 +71,9 @@
             // 
             // btndangxuat
             // 
-            this.btndangxuat.Location = new System.Drawing.Point(473, 337);
+            this.btndangxuat.Location = new System.Drawing.Point(565, 230);
             this.btndangxuat.Name = "btndangxuat";
-            this.btndangxuat.Size = new System.Drawing.Size(75, 23);
+            this.btndangxuat.Size = new System.Drawing.Size(93, 31);
             this.btndangxuat.TabIndex = 2;
             this.btndangxuat.Text = "Đăng xuất";
             this.btndangxuat.UseVisualStyleBackColor = true;
@@ -112,7 +112,7 @@
             this.txtAddress.MaximumSize = new System.Drawing.Size(180, 25);
             this.txtAddress.MinimumSize = new System.Drawing.Size(180, 25);
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(180, 25);
+            this.txtAddress.Size = new System.Drawing.Size(180, 22);
             this.txtAddress.TabIndex = 57;
             // 
             // txtLastName
@@ -123,7 +123,7 @@
             this.txtLastName.MaximumSize = new System.Drawing.Size(180, 25);
             this.txtLastName.MinimumSize = new System.Drawing.Size(180, 25);
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(180, 25);
+            this.txtLastName.Size = new System.Drawing.Size(180, 22);
             this.txtLastName.TabIndex = 54;
             // 
             // lbSex
@@ -154,7 +154,7 @@
             this.txtFirstName.MaximumSize = new System.Drawing.Size(180, 25);
             this.txtFirstName.MinimumSize = new System.Drawing.Size(180, 25);
             this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(180, 25);
+            this.txtFirstName.Size = new System.Drawing.Size(180, 22);
             this.txtFirstName.TabIndex = 53;
             // 
             // txtPhone
@@ -165,7 +165,7 @@
             this.txtPhone.MaximumSize = new System.Drawing.Size(180, 25);
             this.txtPhone.MinimumSize = new System.Drawing.Size(180, 25);
             this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(180, 25);
+            this.txtPhone.Size = new System.Drawing.Size(180, 22);
             this.txtPhone.TabIndex = 58;
             // 
             // txtEmployeeID
@@ -176,7 +176,7 @@
             this.txtEmployeeID.MaximumSize = new System.Drawing.Size(180, 25);
             this.txtEmployeeID.MinimumSize = new System.Drawing.Size(180, 25);
             this.txtEmployeeID.Name = "txtEmployeeID";
-            this.txtEmployeeID.Size = new System.Drawing.Size(180, 25);
+            this.txtEmployeeID.Size = new System.Drawing.Size(180, 22);
             this.txtEmployeeID.TabIndex = 52;
             // 
             // lbFirstName
@@ -231,9 +231,9 @@
             // 
             // btnboqua
             // 
-            this.btnboqua.Location = new System.Drawing.Point(200, 337);
+            this.btnboqua.Location = new System.Drawing.Point(292, 230);
             this.btnboqua.Name = "btnboqua";
-            this.btnboqua.Size = new System.Drawing.Size(75, 23);
+            this.btnboqua.Size = new System.Drawing.Size(93, 31);
             this.btnboqua.TabIndex = 69;
             this.btnboqua.Text = "Bỏ qua";
             this.btnboqua.UseVisualStyleBackColor = true;

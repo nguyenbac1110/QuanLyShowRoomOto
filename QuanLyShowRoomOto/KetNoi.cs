@@ -16,8 +16,8 @@ namespace QuanLyShowRoomOto
         public SqlConnection con;
         public void openConnection()
         {
-            string constring = ConfigurationManager.ConnectionStrings["ql"].ConnectionString.ToString();
-            con = new SqlConnection(constring);
+            //string constring = ConfigurationManager.ConnectionStrings["ql"].ConnectionString.ToString();
+            con = new SqlConnection($@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={Application.StartupPath}\qlshowroom.mdf;Integrated Security=True;Connect Timeout=30");
             con.Open();
         }
         public void closeConnection()

@@ -117,6 +117,8 @@ namespace QuanLyShowRoomOto
                 MessageBox.Show("Lỗi khi cập nhật khách hàng: " + ex.Message);
             }
             txtma.Enabled = true;
+            pnlthem_sua.Visible=true;
+            pnlluu_boqua.Visible = false;
         }
 
         private void btnboqua_Click(object sender, EventArgs e)
@@ -152,5 +154,9 @@ namespace QuanLyShowRoomOto
             dgv.AutoResizeColumns();
         }
 
+        private void pnlthem_sua_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

@@ -59,7 +59,7 @@ namespace QuanLyShowRoomOto
                     EmployeeID = dt.Rows[0]["EmployeeID"].ToString(),
                     FirstName = dt.Rows[0]["FirstName"].ToString(),
                     LastName = dt.Rows[0]["LastName"].ToString(),
-                    Sex = dt.Rows[0]["Sex"].ToString(),
+                    Sex = dt.Rows[0]["Sex"].ToString()
                 };
             }
 

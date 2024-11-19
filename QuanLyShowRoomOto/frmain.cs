@@ -102,10 +102,7 @@ namespace QuanLyShowRoomOto
             loadform(new frmOrder());
         }
 
-        private void btnservice_Click(object sender, EventArgs e)
-        {
-            loadform(new frmService());
-        }
+        
 
         private void frmain_FormClosing(object sender, FormClosingEventArgs e)
         {

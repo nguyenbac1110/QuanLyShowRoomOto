@@ -53,5 +53,11 @@ namespace QuanLyShowRoomOto
         {
            dangnhap = new dangnhap();
         }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            txttk.Clear();
+            txtmk.Clear();
+        }
     }
 }

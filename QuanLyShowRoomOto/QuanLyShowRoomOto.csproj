@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="canhan.cs" />
     <Compile Include="Car.cs" />
+    <Compile Include="CarInfo.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="dangnhap.cs" />
     <Compile Include="Employee.cs" />
@@ -101,18 +102,13 @@
     <Compile Include="frmOrder.Designer.cs">
       <DependentUpon>frmOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmService.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmService.Designer.cs">
-      <DependentUpon>frmService.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmTimKiem_a.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmTimKiem_a.Designer.cs">
       <DependentUpon>frmTimKiem_a.cs</DependentUpon>
     </Compile>
+    <Compile Include="Order.cs" />
     <Compile Include="TimKiem_a.cs" />
     <Compile Include="frmTimKiem_e.cs">
       <SubType>Form</SubType>
@@ -188,6 +184,35 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\anh-nu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

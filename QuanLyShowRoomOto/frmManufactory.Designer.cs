@@ -74,7 +74,7 @@
             // 
             this.btnboqua.Location = new System.Drawing.Point(158, 31);
             this.btnboqua.Name = "btnboqua";
-            this.btnboqua.Size = new System.Drawing.Size(75, 28);
+            this.btnboqua.Size = new System.Drawing.Size(93, 31);
             this.btnboqua.TabIndex = 101;
             this.btnboqua.Text = "Bỏ qua";
             this.btnboqua.UseVisualStyleBackColor = true;
@@ -84,7 +84,7 @@
             // 
             this.btnluu.Location = new System.Drawing.Point(25, 31);
             this.btnluu.Name = "btnluu";
-            this.btnluu.Size = new System.Drawing.Size(75, 28);
+            this.btnluu.Size = new System.Drawing.Size(93, 31);
             this.btnluu.TabIndex = 100;
             this.btnluu.Text = "Lưu";
             this.btnluu.UseVisualStyleBackColor = true;
@@ -103,7 +103,7 @@
             // 
             this.btnthem.Location = new System.Drawing.Point(16, 26);
             this.btnthem.Name = "btnthem";
-            this.btnthem.Size = new System.Drawing.Size(75, 28);
+            this.btnthem.Size = new System.Drawing.Size(93, 31);
             this.btnthem.TabIndex = 98;
             this.btnthem.Text = "Thêm";
             this.btnthem.UseVisualStyleBackColor = true;
@@ -113,7 +113,7 @@
             // 
             this.btnxoa.Location = new System.Drawing.Point(158, 26);
             this.btnxoa.Name = "btnxoa";
-            this.btnxoa.Size = new System.Drawing.Size(75, 28);
+            this.btnxoa.Size = new System.Drawing.Size(93, 31);
             this.btnxoa.TabIndex = 99;
             this.btnxoa.Text = "Xóa";
             this.btnxoa.UseVisualStyleBackColor = true;
@@ -123,7 +123,7 @@
             // 
             this.btnsua.Location = new System.Drawing.Point(813, 144);
             this.btnsua.Name = "btnsua";
-            this.btnsua.Size = new System.Drawing.Size(75, 28);
+            this.btnsua.Size = new System.Drawing.Size(93, 31);
             this.btnsua.TabIndex = 134;
             this.btnsua.Text = "Sửa";
             this.btnsua.UseVisualStyleBackColor = true;
