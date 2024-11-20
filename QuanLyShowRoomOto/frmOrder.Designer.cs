@@ -41,6 +41,7 @@
             this.txtmadonhang = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnxoa = new System.Windows.Forms.Button();
             this.txttenxe = new System.Windows.Forms.TextBox();
             this.btnin = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -56,6 +57,8 @@
             this.cbxmaxe = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cbxmadonhang = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
@@ -175,6 +178,9 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.cbxmadonhang);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.btnxoa);
             this.groupBox2.Controls.Add(this.txttenxe);
             this.groupBox2.Controls.Add(this.btnin);
             this.groupBox2.Controls.Add(this.label3);
@@ -197,6 +203,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin chi tiết";
             // 
+            // btnxoa
+            // 
+            this.btnxoa.Location = new System.Drawing.Point(518, 407);
+            this.btnxoa.Name = "btnxoa";
+            this.btnxoa.Size = new System.Drawing.Size(93, 31);
+            this.btnxoa.TabIndex = 34;
+            this.btnxoa.Text = "Xóa";
+            this.btnxoa.UseVisualStyleBackColor = true;
+            this.btnxoa.Click += new System.EventHandler(this.btnxoa_Click);
+            // 
             // txttenxe
             // 
             this.txttenxe.Enabled = false;
@@ -207,7 +223,7 @@
             // 
             // btnin
             // 
-            this.btnin.Location = new System.Drawing.Point(513, 424);
+            this.btnin.Location = new System.Drawing.Point(467, 354);
             this.btnin.Name = "btnin";
             this.btnin.Size = new System.Drawing.Size(93, 31);
             this.btnin.TabIndex = 33;
@@ -226,7 +242,7 @@
             // 
             // btnhuy
             // 
-            this.btnhuy.Location = new System.Drawing.Point(358, 424);
+            this.btnhuy.Location = new System.Drawing.Point(327, 354);
             this.btnhuy.Name = "btnhuy";
             this.btnhuy.Size = new System.Drawing.Size(93, 31);
             this.btnhuy.TabIndex = 32;
@@ -237,7 +253,7 @@
             // btnluu
             // 
             this.btnluu.Enabled = false;
-            this.btnluu.Location = new System.Drawing.Point(187, 424);
+            this.btnluu.Location = new System.Drawing.Point(164, 354);
             this.btnluu.Name = "btnluu";
             this.btnluu.Size = new System.Drawing.Size(93, 31);
             this.btnluu.TabIndex = 31;
@@ -247,7 +263,7 @@
             // 
             // btnthem
             // 
-            this.btnthem.Location = new System.Drawing.Point(32, 424);
+            this.btnthem.Location = new System.Drawing.Point(8, 354);
             this.btnthem.Name = "btnthem";
             this.btnthem.Size = new System.Drawing.Size(93, 31);
             this.btnthem.TabIndex = 30;
@@ -257,7 +273,7 @@
             // 
             // txttongtien
             // 
-            this.txttongtien.Location = new System.Drawing.Point(754, 424);
+            this.txttongtien.Location = new System.Drawing.Point(813, 354);
             this.txttongtien.Name = "txttongtien";
             this.txttongtien.Size = new System.Drawing.Size(153, 22);
             this.txttongtien.TabIndex = 29;
@@ -265,7 +281,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(669, 424);
+            this.label14.Location = new System.Drawing.Point(728, 354);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(63, 16);
             this.label14.TabIndex = 28;
@@ -279,9 +295,10 @@
             this.dgv.Name = "dgv";
             this.dgv.RowHeadersWidth = 51;
             this.dgv.RowTemplate.Height = 24;
-            this.dgv.Size = new System.Drawing.Size(915, 304);
+            this.dgv.Size = new System.Drawing.Size(915, 243);
             this.dgv.TabIndex = 27;
             this.dgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellContentClick);
+            this.dgv.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellDoubleClick);
             // 
             // txtgiatien
             // 
@@ -333,6 +350,24 @@
             this.label10.Size = new System.Drawing.Size(43, 16);
             this.label10.TabIndex = 20;
             this.label10.Text = "Mã xe";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(32, 410);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(212, 20);
+            this.label4.TabIndex = 35;
+            this.label4.Text = "Chọn mã đơn hàng cần xóa";
+            // 
+            // cbxmadonhang
+            // 
+            this.cbxmadonhang.FormattingEnabled = true;
+            this.cbxmadonhang.Location = new System.Drawing.Point(278, 410);
+            this.cbxmadonhang.Name = "cbxmadonhang";
+            this.cbxmadonhang.Size = new System.Drawing.Size(203, 24);
+            this.cbxmadonhang.TabIndex = 36;
             // 
             // frmOrder
             // 
@@ -386,5 +421,8 @@
         private System.Windows.Forms.Button btnthem;
         private System.Windows.Forms.TextBox txttenxe;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnxoa;
+        private System.Windows.Forms.ComboBox cbxmadonhang;
+        private System.Windows.Forms.Label label4;
     }
 }

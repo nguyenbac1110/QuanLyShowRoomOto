@@ -66,13 +66,32 @@ namespace QuanLyShowRoomOto
             }
 
             MessageBox.Show("Thêm đơn hàng thành công!");
+            Load_Orders();
+            txtmadonhang.Clear();
+            txtyeucau.Clear();
+            txtsl.Clear();
+            dgv.Rows.Clear();
+            btnhuy.Enabled = false;
+            btnluu.Enabled = false;
+            btnin.Enabled = false;
+            txttenxe.Clear();
+            txtgiatien.Clear();
+            cbxmaxe.SelectedIndex = -1;
+            cbxmanhanvien.SelectedIndex = -1;
+            cbxmakhachhang.SelectedIndex = -1;
         }
 
         private void btnhuy_Click(object sender, EventArgs e)
         {
             btnthem.Enabled = false;
             btnin.Enabled = false;
+            txtsl.Clear();
             dgv.Rows.Clear();
+            txttenxe.Clear();
+            txtgiatien.Clear();
+            cbxmaxe.SelectedIndex = -1;
+            cbxmanhanvien.SelectedIndex = -1;
+            cbxmakhachhang.SelectedIndex = -1;
         }
 
         private void btnin_Click(object sender, EventArgs e)
@@ -138,6 +157,7 @@ namespace QuanLyShowRoomOto
             cbxmaxe.DataSource = order.GetCars();
             cbxmaxe.DisplayMember = "CarID";
             cbxmaxe.ValueMember = "CarID";
+            Load_Orders();
         }
 
         private void cbxmaxe_SelectedIndexChanged(object sender, EventArgs e)
@@ -185,6 +205,57 @@ namespace QuanLyShowRoomOto
         private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnxoa_Click(object sender, EventArgs e)
+        {
+            string orderId = cbxmadonhang.SelectedItem?.ToString();
+            if (string.IsNullOrEmpty(orderId))
+            {
+                MessageBox.Show("Vui lòng chọn mã đơn hàng để xóa!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa đơn hàng này?", "Xác nhận xóa",MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.No) return;
+            try
+            {
+                order.DeleteOrder(orderId);
+                MessageBox.Show("Xóa đơn hàng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Load_Orders();
+                dgv.Rows.Clear();
+                txttongtien.Text = "0";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi xảy ra: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            Load_Orders();
+            cbxmaxe.SelectedIndex = -1;
+            cbxmanhanvien.SelectedIndex = -1;
+            cbxmakhachhang.SelectedIndex = -1;
+        }
+
+        private void dgv_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < dgv.Rows.Count)
+            {
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa hàng này?","Xác nhận xóa",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    dgv.Rows.RemoveAt(e.RowIndex);
+                }
+            }
+        }
+        private void Load_Orders()
+        {
+            cbxmadonhang.SelectedItem = null;
+            cbxmadonhang.SelectedIndex = -1;
+            DataTable dt = order.LoadOrders();
+            cbxmadonhang.Items.Clear();
+            foreach (DataRow row in dt.Rows)
+            {
+                cbxmadonhang.Items.Add(row["OrderID"].ToString());
+            }
         }
     }
 }

@@ -75,7 +75,23 @@ namespace QuanLyShowRoomOto
             };
             kn.CreateUpdateDelete(query, parameters);
         }
-
-       
+        public void DeleteOrder(string orderId)
+        {
+            string deleteOrderDetailsQuery = "DELETE FROM OrderDetails WHERE OrderID = @OrderID";
+            string deleteOrderQuery = "DELETE FROM [Order] WHERE OrderID = @OrderID";
+            SqlParameter[] parametersForDetails = {
+                new SqlParameter("@OrderID", orderId)
+            };
+                    SqlParameter[] parametersForOrder = {
+                new SqlParameter("@OrderID", orderId)
+            };
+            kn.CreateUpdateDelete(deleteOrderDetailsQuery, parametersForDetails);
+            kn.CreateUpdateDelete(deleteOrderQuery, parametersForOrder);
+        }
+        public DataTable LoadOrders()
+        {
+            string query = "SELECT OrderID FROM [Order]";
+            return kn.ReadData(query);
+        }
     }
 }
